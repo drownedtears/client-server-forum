@@ -1,0 +1,14 @@
+package ru.doketov.forum.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import ru.doketov.forum.model.entity.Article;
+
+import java.util.List;
+
+public interface ArticleRepository extends JpaRepository<Article, Long> {
+    Article getArticleById(Long id);
+
+    List<Article> findByOrderByRatingDesc();
+
+    List<Article> findArticlesByHeader(String header);
+}
